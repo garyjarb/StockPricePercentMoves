@@ -3,3 +3,5 @@
 User input - Enter the values of your choosing in the script in the following variables
 BUSINESS_DAYS = 20   # Enter here number of business days, every 5 days is equal to 1 week (20 business days = 4 weeks).
 STOCK = 'GOOG'   # Enter your Ticker symbol.
+
+Disclaimer: this is not a financial advice, and data accuracy from Yahoo is not guaranteed.
