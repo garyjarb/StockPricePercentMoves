@@ -1,4 +1,4 @@
-# script to retrieve stock ticker price data (closing) from Yahoo finance for the trailing 12 month or more.
+# script to retrieve stock ticker historic price data (closing) from Yahoo finance for the trailing 12 month or more.
 # and calculate the stock price moves and price percentage moves in X days, for the trailing 12 month or more.
 # and determine largest moves and print on the screen.
 # and generate CSV report for all the price movements.
@@ -8,11 +8,9 @@
 from datetime import datetime
 import csv
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas_datareader.data as web
-import pandas as pd
 import yfinance as yf
-yf.pdr_override() #<== that's all it takes to override pandas
+yf.pdr_override() #<== to override pandas
 
 #################### Enter Below the required data ################################
 BUSINESS_DAYS = 20   # Enter here number of business days, every 5 days is equal to 1 week (20 business days = 4 weeks).
@@ -29,8 +27,6 @@ percent_moves_lst=[]
 moveDate_lst=[]
 ####################
 
-start = datetime(2021, 1, 1)
-#data = web.get_data_yahoo(STOCK, start="2022-01-01", end="2022-12-27") #get data from yahoo finance
 data = web.get_data_yahoo(STOCK, start="2022-01-01")
 print(data)
 
@@ -115,7 +111,7 @@ print(priceMoveDate," Minimum Price Move= ", "$"+str(min(price_moves_lst)),"\n")
 print(percentMoveDate," Minimum Price Percent Move= ", str(min(percent_moves_lst))+"%","\n")
 
 ### Output generated results into a CSV file
-file_out = open("C:\\Doc\\Investing\\Python\\"+OUTPUT_REPORT_NAME, "w")
+file_out = open(OUTPUT_REPORT_NAME, "w")
 file_out.write("date")
 file_out.write(",")
 file_out.write("Price_Move")
